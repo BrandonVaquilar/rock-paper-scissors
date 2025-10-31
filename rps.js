@@ -30,18 +30,19 @@ function getHumanChoice() {
 }
 
 
-function playRound(humanChoice, computerChoice) {
-        let winner = undefined;
-        
-        if (humanChoice === computerChoice) return `Tie! ${humanChoice} ties with ${computerChoice}!`;
-        if (humanChoice < computerChoice) {
-            humanScore += 1;
-            return `You win! ${humanChoice} beats ${computerChoice}!`;
-        } else {
-            computerScore += 1;
-            return `You lose! ${humanChoice} loses to ${computerChoice}!`;
-        }
+function playRound(humanChoice, computerChoice) { 
+
+    if (humanChoice === computerChoice) return `Tie! ${humanChoice} ties with ${computerChoice}!`;
+    if ((humanChoice === "ROCK" && computerChoice === "SCISSORS")
+        || (humanChoice === "SCISSORS" && computerChoice === "PAPER")
+        ||  (humanChoice === "PAPER" && computerChoice === "ROCK")) {
+        humanScore += 1;
+        return `You win! ${humanChoice} beats ${computerChoice}!`;
+    } else {
+        computerScore += 1;
+        return `You lose! ${humanChoice} loses to ${computerChoice}!`;
     }
+}
 
 function playGame() {
     //humanScore = 0;
